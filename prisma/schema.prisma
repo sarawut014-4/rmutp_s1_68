@@ -10,9 +10,9 @@ datasource db {
 
 model User {
   id       String @id @default(uuid())
-  username String
+  username String @unique
   password String
-  mobile   String
-  cardId   String
-  status   Int
+  mobile   String @unique @db.Varchar(10)
+  cardId   String @unique @db.Varchar(13)
+  status   Boolean
 }
