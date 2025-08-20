@@ -2,6 +2,14 @@
 
 Sarawut wongmanee
 
+## Required
+- git
+- Docker & Docker compose
+- ProgresSql 
+- Node.js
+- Prisma
+ 
+
 ## Running
 ### database
 ``` 
