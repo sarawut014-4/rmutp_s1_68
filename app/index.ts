@@ -4,7 +4,7 @@ const app = new Hono();
  app.get("/", (C) => C.text("hello, world"));
  app.get("/about", (C) => {
     return C.json({
-        message: "About Page"
+        message: "ศราวุฒิ วงศ์มณี"
     });
  });
 
