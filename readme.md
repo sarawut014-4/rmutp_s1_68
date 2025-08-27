@@ -42,5 +42,8 @@ npx prisma init --datasource-provider postgresql
 ``` bash
 npx prisma generate
 ```
-
+## Run this project
+```bash
+npm run build
+```
 
