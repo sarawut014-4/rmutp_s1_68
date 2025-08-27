@@ -3,12 +3,16 @@
     "@hono/node-server": "^1.19.0",
     "@prisma/client": "^6.13.0",
     "hono": "^4.9.2",
-    "prisma": "^6.13.0",
-    "ts-node": "^10.9.2"
+    "prisma": "^6.13.0"
   },
   "scripts": {
     "build": "tsc",
     "start": "node dist/app/server.js",
     "dev": "ts-node app/server.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
   }
 }
