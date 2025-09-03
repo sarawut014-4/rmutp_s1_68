@@ -8,8 +8,8 @@ POST http://localhost:3000/profile
 Content-Type: application/json
 
 {
-    "username": "yaiba",
+    "username": "yaibag",
     "password": "123456",
-    "mobile"  : "0942241588",
+    "mobile"  : "0942241581",
     "cardid"  : "5678"
 }
