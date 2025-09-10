@@ -40,7 +40,7 @@ app.get("/profile", async (c) => {
     const decodedProfiles = profile.map((p) => ({
     ...p,
     mobile: decrypt(p.mobile),
-    cardId: decrypt(p.cardId),
+    cardid: decrypt(p.cardid),
   }));
 
     
@@ -59,7 +59,7 @@ app.post("/profile", async (c) => {
         where: {
             OR: [
                 { mobile: encrypt(body.mobile) },
-                { cardId: encrypt(body.cardId) }
+                { cardid: encrypt(body.cardid) }
             ]
         }
     });
@@ -67,7 +67,7 @@ app.post("/profile", async (c) => {
     if (existingProfile) {
     let duplicatedFields = [];
     if (decrypt(existingProfile.mobile) === body.mobile) duplicatedFields.push('mobile');
-    if (decrypt(existingProfile.cardId) === body.cardId) duplicatedFields.push('cardId');
+    if (decrypt(existingProfile.cardid) === body.cardId) duplicatedFields.push('cardid');
 
         return c.json(
             { message: `ข้อมูลซ้ำ: ${duplicatedFields.join(', ')}` },
@@ -85,7 +85,7 @@ app.post("/profile", async (c) => {
 
     //save to db
     body.mobile = encrypt(body.mobile);
-    body.cardId = encrypt(body.cardId);
+    body.cardid = encrypt(body.cardid);
     body.status= false;
     const result = await prisma.profile.create({
         data:body
@@ -96,7 +96,7 @@ app.post("/profile", async (c) => {
     const output = {
         ...result,
         mobile: decrypt(result.mobile),
-        cardId: decrypt(result.cardId),
+        cardid: decrypt(result.cardid),
     };
 
     // output
