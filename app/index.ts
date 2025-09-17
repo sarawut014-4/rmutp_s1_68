@@ -1,7 +1,7 @@
 import { Hono } from "hono";
 import { PrismaClient } from "@prisma/client";
 import * as bcrypt from "bcrypt";
-import { encrypted, decrypted } from "./service";  
+import { encode,decode } from "./service"; 
 
 const prisma = new PrismaClient();
 const app = new Hono();
@@ -17,8 +17,8 @@ app.get("/profile", async (c) => {
 
   const decodedProfiles = profiles.map((p) => ({
     ...p,
-    mobile: decrypted(p.mobile),
-    cardid: decrypted(p.cardid),
+    mobile: decode(p.mobile),
+    cardid: decode(p.cardid),
   }));
 
   return c.json(decodedProfiles);
@@ -31,15 +31,15 @@ app.post("/profile", async (c) => {
   console.log("body.password(original)", body.password);
 
   // encode sensitive fields
-  const encMobile = encrypted(body.mobile);
-  const encCardId = encrypted(body.cardid);
+  const encMobile = encode(body.mobile);
+  const encCardId = encode(body.cardid);
   // ---- ตรวจซ้ำ (ต้อง decode จาก DB มาเช็ค) ----
   const existingProfiles = await prisma.profile.findMany();
   const duplicatedFields: string[] = [];
 
   for (const p of existingProfiles) {
-    if (decrypted(p.mobile) === body.mobile) duplicatedFields.push("mobile");
-    if (decrypted(p.cardid) === body.cardid) duplicatedFields.push("cardid");
+    if (decode(p.mobile) === body.mobile) duplicatedFields.push("mobile");
+    if (decode(p.cardid) === body.cardid) duplicatedFields.push("cardid");
   }
 
   if (duplicatedFields.length > 0) {

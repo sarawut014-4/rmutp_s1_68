@@ -14,10 +14,10 @@ POST http://localhost:3000/profile
 Content-Type: application/json
 
 {
-  "username": "yaiba",
+  "username": "yaiba2",
   "password": "1234",
-  "mobile": "0933851599",
-  "cardid": "1233857891744"
+  "mobile": "0933851499",
+  "cardid": "1233857881744"
 }
 
 ### Get Profile by ID
