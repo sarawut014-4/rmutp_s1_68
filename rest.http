@@ -1,15 +1,24 @@
-### GET all profiles
-### curl http://localhost:3000/profile
+# REST API
+
+### Root Test
+GET http://localhost:3000/
+
+### About
+GET http://localhost:3000/about
+
+### Get All Profile
 GET http://localhost:3000/profile
 
-### create new profile
-### curl -X POST http://localhost:3000/profile
+### Create New Profile
 POST http://localhost:3000/profile
 Content-Type: application/json
 
 {
-    "username": "yaiba",
-    "password": "123456",
-    "mobile"  : "0942241581",
-    "cardid"  : "1545468971235"
+  "username": "yaiba",
+  "password": "1234",
+  "mobile": "0933851599",
+  "cardid": "1233857891744"
 }
+
+### Get Profile by ID
+GET http://localhost:3000/profile/7645b518-749d-4c18-a2e3-93eb3a8d3a49
