@@ -8,7 +8,7 @@ const app = new Hono();
 
 app.get("/", (c) => c.text("Hono!"));
 app.get("/about", (c) => {
-  return c.json({ message: "ชื่อตัวเอง " });
+  return c.json({ message: "sarawut wongmanee" });
 });
 
 //GET profiles
